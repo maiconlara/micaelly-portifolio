@@ -3,6 +3,9 @@ import { Poppins, Mr_De_Haviland, Scheherazade_New } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/ui/header";
 import localFont from "next/font/local";
+import { Toaster } from "@/components/ui/sonner";
+import { Providers } from "@/app/providers";
+import { WhatsappFloating } from "@/components/ui/whatsapp-float";
 
 const haviland = Mr_De_Haviland({
   variable: "--font-haviland",
@@ -85,8 +88,12 @@ export default function RootLayout({
       <body
         className={`flex flex-col w-full min-h-[calc(100vh-72px)] items-center justify-center ${haviland.variable}  ${poppins.variable} ${scheherazade.variable} ${zalando.variable} antialiased`}
       >
-        <Header />
-        {children}
+        <Providers>
+          <Toaster />
+          <WhatsappFloating />
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   );

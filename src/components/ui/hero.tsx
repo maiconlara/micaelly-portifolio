@@ -1,8 +1,8 @@
 export const Hero = () => {
   return (
-    <div className="relative overflow-hidden min-h-screen md:min-h-[calc(100vh-72px)] w-full flex items-center justify-center bg-transparent">
+    <div className="relative overflow-hidden min-h-[calc(100vh-72px)] w-full flex items-center justify-center bg-transparent">
       <div className="flex flex-col lg:flex-row w-full h-full max-w-[86vw] 2xl:max-w-[1420px] items-center justify-center gap-10">
-        <div className="flex flex-col items-center w-full gap-8 select-none md:-mt-[72px]">
+        <div className="flex flex-col items-center w-full gap-8 select-none -mt-[72px]">
           <div className="flex flex-col w-full gap-0 items-center justify-center">
             <p className="text-green-secondary text-6xl lg:text-9xl font-light uppercase font-name select-none text-center">
               Micaelly

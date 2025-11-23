@@ -1,0 +1,12 @@
+"use client";
+
+import AnimateIcon from "@/components/ui/animate-icon";
+
+
+export const SuspenseFallback = () => {
+    return (
+        <div className="flex h-screen w-full max-w-[1920px] items-center justify-center">
+            <AnimateIcon />
+        </div>
+    );
+};
