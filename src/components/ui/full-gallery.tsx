@@ -6,7 +6,6 @@ import aniversario3 from "@/assets/galeria/aniversario3.webp";
 import aniversario4 from "@/assets/galeria/aniversario4.webp";
 import aniversario5 from "@/assets/galeria/aniversario5.webp";
 import aniversario6 from "@/assets/galeria/aniversario6.webp";
-import aniversario7 from "@/assets/galeria/aniversario7.webp";
 
 import casamento from "@/assets/galeria/casamento.webp";
 import casamento2 from "@/assets/galeria/casamento2.webp";
@@ -50,8 +49,7 @@ import GalleryItem from "@/components/ui/gallery-item";
 import { PhotoProvider } from "react-photo-view";
 
 import "react-photo-view/dist/react-photo-view.css";
-import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
-import Link from "next/link";
+
 import { useEffect } from "react";
 
 export const FullGallery = () => {
