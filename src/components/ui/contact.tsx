@@ -87,7 +87,7 @@ export const Contact = () => {
         <div className=" absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  flex flex-col w-full max-w-[86vw] lg:max-w-[32vw]">
           <Form {...form}>
             <form
-              className="flex w-full flex-col items-center gap-6 px-4 md:px-0"
+              className="flex w-full flex-col items-center gap-6 px-4 md:px-0 font-text"
               onSubmit={form.handleSubmit(onSubmit)}
             >
               <div className="grid w-full gap-4 grid-cols-1 md:grid-cols-2">

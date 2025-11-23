@@ -3,16 +3,12 @@ import GalleryItem from "@/components/ui/gallery-item";
 import { PhotoProvider } from "react-photo-view";
 import aniversario1 from "@/assets/aniversario1.png";
 import aniversario2 from "@/assets/aniversario2.png";
-import cenario from "@/assets/cenario.png";
 import cosplay from "@/assets/cosplay.png";
-import encontro from "@/assets/encontro.png";
-import externo from "@/assets/externo.png";
 import gestante from "@/assets/gestante.png";
-import gestante2 from "@/assets/gestante2.png";
-import gestante3 from "@/assets/gestante3.png";
-import produto from "@/assets/produto.png";
 
 import "react-photo-view/dist/react-photo-view.css";
+import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
+import Link from "next/link";
 
 export const Gallery = () => {
   const items = [
@@ -20,41 +16,20 @@ export const Gallery = () => {
       src: aniversario1,
       category: "Aniversário",
     },
+
     {
       src: aniversario2,
       category: "Aniversário",
     },
-    {
-      src: cenario,
-      category: "Cenário",
-    },
-    {
-      src: externo,
-      category: "Externo",
-    },
-    {
-      src: encontro,
-      category: "Encontro",
-    },
+
     {
       src: gestante,
       category: "Gestante",
     },
-    {
-      src: gestante2,
-      category: "Gestante",
-    },
-    {
-      src: gestante3,
-      category: "Gestante",
-    },
+
     {
       src: cosplay,
       category: "Cosplay",
-    },
-    {
-      src: produto,
-      category: "Produto",
     },
   ];
 
@@ -67,7 +42,7 @@ export const Gallery = () => {
         <div className="flex flex-col w-full items-center justify-center gap-5 max-w-[86vw]">
           <div className="flex flex-row w-full items-center justify-center gap-2">
             <p className="text-green-primary text-2xl uppercase  font-light font-clean cursor-default">
-              Galeria
+              Trabalhos
             </p>
           </div>
         </div>
@@ -83,6 +58,10 @@ export const Gallery = () => {
             ))}
           </div>
         </PhotoProvider>
+
+        <Link  href="galeria">
+          <InteractiveHoverButton>Galeria Completa</InteractiveHoverButton>
+        </Link>
       </div>
     </div>
   );

@@ -25,10 +25,10 @@ export async function POST(request: Request) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: "Contato <onboarding@resend.dev>",
-      to: ["maiconluan.lara@yahoo.com.br"],
+      from: "Contato <micaelly@maiconlara.com.br>",
+      to: ["micaellyfotoarte@gmail.com"],
       replyTo: [email],
-      subject: "Novo contato pelo portifólio",
+      subject: "Novo Contato Pelo Site",
       react: EmailTemplate({ name, phone, email, message }),
     });
 

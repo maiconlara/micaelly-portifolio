@@ -5,12 +5,13 @@ interface GalleryItemProps {
   src: string;
   category: string;
   description?: string;
+  textColor?: string;
 }
 
 const GalleryItem = React.forwardRef<HTMLDivElement, GalleryItemProps>(
-  ({ src, category, description }, ref) => {
+  ({ src, category, description, textColor }, ref) => {
     return (
-      <div ref={ref}>
+      <div ref={ref} className="break-inside-avoid">
         <div className="flex flex-col gap-2 w-full">
           <PhotoView src={src}>
             <img
@@ -19,7 +20,11 @@ const GalleryItem = React.forwardRef<HTMLDivElement, GalleryItemProps>(
               className="w-full h-auto cursor-pointer object-cover rounded"
             />
           </PhotoView>
-          <p className="text-xs tracking-widest uppercase text-gray-500 mb-5">
+          <p
+            className={`text-xs tracking-widest uppercase font-clean  font-light mb-5 cursor-default ${
+              textColor ? textColor : "text-gray-500"
+            }`}
+          >
             {category}
           </p>
         </div>

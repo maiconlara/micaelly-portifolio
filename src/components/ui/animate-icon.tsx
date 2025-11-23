@@ -10,7 +10,7 @@ const AnimateIcon = () => {
         width={500}
         height={500}
         src={heart}
-        className="h-auto w-[250px]"
+        className="h-auto w-60"
         alt="Coração"
       />
     </div>

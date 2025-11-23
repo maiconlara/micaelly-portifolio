@@ -1,5 +1,7 @@
 import Image from "next/image";
 import fadaframe from "@/assets/fadaframe.png";
+import Link from "next/link";
+import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 
 export const About = () => {
   return (
@@ -17,7 +19,7 @@ export const About = () => {
         </div>
 
         <div className="flex flex-col xl:flex-row xl:justify-between w-full max-w-[86vw] xl:items-start items-center justify-center xl:h-[632px] gap-18 xl:gap-0">
-          <div className="flex flex-col items-center justify-center xl:items-start xl:justify-start gap-20">
+          <div className="flex flex-col items-center justify-center xl:items-start xl:justify-start gap-18">
             <div>
               <div className="flex flex-col items-center w-full gap-8 select-none">
                 <div className="flex flex-col w-full gap-0 items-center justify-center">
@@ -40,6 +42,10 @@ export const About = () => {
               fundamental, onde me interessei por essa arte incrível de capturar
               momentos e contar histórias através das lentes.
             </p>
+
+            <Link href="galeria">
+              <InteractiveHoverButton>Galeria Completa</InteractiveHoverButton>
+            </Link>
           </div>
 
           <Image
@@ -52,13 +58,6 @@ export const About = () => {
             className="rounded-xl w-full h-auto object-cover max-w-[720px] select-none  pointer-events-none"
           />
         </div>
-
-        {/* <Link
-              target="_blank"
-              href="https://www.linkedin.com/in/maiconlara/"
-            >
-              <InteractiveHoverButton>Acessar LinkedIn</InteractiveHoverButton>
-            </Link> */}
       </div>
     </div>
   );
