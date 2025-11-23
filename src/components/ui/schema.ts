@@ -1,4 +1,4 @@
-import { requiredStringField, optionalStringField} from "./reusableSchemes";
+import { requiredStringField} from "./reusableSchemes";
 import {z} from "zod";
 
 const emailRegex = /^(?![-.])[\w.-]+@(?![-.])[\w.-]+\.[a-zA-Z]{2,}$/;
