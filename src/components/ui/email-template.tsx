@@ -103,10 +103,7 @@ const contactLink = {
   color: "#90a084",
 };
 
-const link = {
-  ...paragraph,
-  color: "#90a084",
-};
+
 
 const hr = {
   borderColor: "#e8eaed",

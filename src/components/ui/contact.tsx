@@ -42,7 +42,7 @@ export const Contact = () => {
     return data;
   };
 
-  const { mutate, isPending } = useMutation({
+  const { mutate } = useMutation({
     mutationFn: SendEmailRequest,
     onSuccess: () => {
       toast.success(

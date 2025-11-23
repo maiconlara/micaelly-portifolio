@@ -4,6 +4,6 @@ export const requiredStringField = (minLength: number, maxLength: number, messag
     z.string().min(minLength, message).max(maxLength, "Máximo de caracteres alcançado");
 
 
-export const optionalStringField = (maxLength: number) =>
-    z.string().max(maxLength, "Máximo de caracteres alcançado").optional();
+// export const optionalStringField = (maxLength: number) =>
+//     z.string().max(maxLength, "Máximo de caracteres alcançado").optional();
 
