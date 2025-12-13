@@ -39,11 +39,8 @@ import gestante3 from "@/assets/galeria/gestante3.png";
 
 import show from "@/assets/galeria/show.webp";
 import show2 from "@/assets/galeria/show2.webp";
-import show3 from "@/assets/galeria/show3.webp";
-import show4 from "@/assets/galeria/show4.webp";
 
-import produto from "@/assets/galeria/produto.png";
-import produto2 from "@/assets/galeria/produto2.webp";
+
 
 import GalleryItem from "@/components/ui/gallery-item";
 import { PhotoProvider } from "react-photo-view";
@@ -70,7 +67,6 @@ export const FullGallery = () => {
     { src: cenario, category: "Cenário" },
 
     { src: casamento3, category: "Casamento" },
-    { src: produto2, category: "Produto" },
 
     { src: cosplay3, category: "Cosplay" },
     { src: casamento4, category: "Casamento" },
@@ -105,11 +101,7 @@ export const FullGallery = () => {
     // Show
     { src: show, category: "Show" },
     { src: show2, category: "Show" },
-    { src: show3, category: "Show" },
-    { src: show4, category: "Show" },
 
-    // Produto
-    { src: produto, category: "Produto" },
   ];
 
   return (
