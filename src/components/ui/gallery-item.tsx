@@ -18,7 +18,7 @@ const GalleryItem = React.forwardRef<HTMLDivElement, GalleryItemProps>(
           <PhotoView src={src}>
             <div className="relative w-full">
               {isLoading && (
-                <div className="absolute inset-0 bg-gray-200 animate-pulse rounded" style={{ aspectRatio: '3/4' }} />
+                <div className="absolute inset-0 bg-gray-200 animate-pulse rounded aspect-[3/4]" />
               )}
               <img
                 src={src}
@@ -27,6 +27,7 @@ const GalleryItem = React.forwardRef<HTMLDivElement, GalleryItemProps>(
                   isLoading ? 'opacity-0' : 'opacity-100'
                 }`}
                 onLoad={() => setIsLoading(false)}
+                onError={() => setIsLoading(false)}
               />
             </div>
           </PhotoView>
