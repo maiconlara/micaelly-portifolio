@@ -3,6 +3,8 @@
 import Link from "next/link";
 import {
   RiArrowRightLine,
+  RiCameraLensLine,
+  RiInstagramLine,
   RiMailFill,
   RiWhatsappFill,
 } from "@remixicon/react";
@@ -33,6 +35,27 @@ const CONTACTS: ContactCard[] = [
     description: "Para orçamentos e parcerias",
     value: "micaellyfotoarte@gmail.com",
     href: "mailto:micaellyfotoarte@gmail.com",
+  },
+];
+
+const SOCIALS = [
+  {
+    icon: RiCameraLensLine,
+    label: "VSCO",
+    handle: "minmixt",
+    href: "https://vsco.co/minmixt/gallery",
+  },
+  {
+    icon: RiInstagramLine,
+    label: "Cosplay",
+    handle: "@_fadica",
+    href: "https://www.instagram.com/_fadica/",
+  },
+  {
+    icon: RiInstagramLine,
+    label: "Fotografia",
+    handle: "@micaellydarosa",
+    href: "https://www.instagram.com/micaellydarosa/",
   },
 ];
 
@@ -96,6 +119,45 @@ export const Contact = () => {
             );
           })}
         </div>
+
+        <Reveal delay={0.25}>
+          <div className="flex flex-col items-center gap-6 px-6">
+            <span aria-hidden="true" className="block h-px w-10 bg-white/40" />
+            <p className="text-[11px] md:text-xs uppercase tracking-[0.4em] font-clean font-light text-white/75">
+              Encontre-me também
+            </p>
+            <ul className="flex flex-wrap items-center justify-center gap-x-7 gap-y-4 md:gap-x-10">
+              {SOCIALS.map((s) => {
+                const Icon = s.icon;
+                return (
+                  <li key={`${s.label}-${s.handle}`}>
+                    <Link
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${s.label} — ${s.handle}`}
+                      className="group inline-flex items-center gap-2.5 text-white/85 hover:text-white transition-colors"
+                    >
+                      <Icon
+                        size={16}
+                        className="opacity-80 group-hover:opacity-100 transition-opacity"
+                      />
+                      <span className="font-text text-sm tracking-wide flex flex-col leading-tight">
+                        <span className="text-[10px] uppercase tracking-[0.3em] font-clean font-light text-white/55">
+                          {s.label}
+                        </span>
+                        <span className="relative w-fit">
+                          {s.handle}
+                          <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full" />
+                        </span>
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
