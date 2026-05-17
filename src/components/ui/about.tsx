@@ -53,20 +53,19 @@ export const About = () => {
             </Reveal>
           </div>
 
-          <Reveal delay={0.15} className="w-full xl:w-auto flex justify-center">
-            <div className="relative w-full max-w-[720px] aspect-[959/843]">
-              <Image
-                src={fadaframe}
-                alt="Frame de fotografias de Micaelly da Rosa"
-                placeholder="blur"
-                priority
-                fetchPriority="high"
-                quality={85}
-                sizes="(min-width: 1280px) 720px, (min-width: 640px) 80vw, 100vw"
-                fill
-                className="rounded-xl object-cover select-none pointer-events-none"
-              />
-            </div>
+          <Reveal delay={0.15} className="flex w-full justify-center xl:w-auto xl:justify-end">
+            <Image
+              src={fadaframe}
+              alt="Frame de fotografias de Micaelly da Rosa"
+              placeholder="blur"
+              priority
+              fetchPriority="high"
+              quality={85}
+              sizes="(min-width: 1280px) 720px, (min-width: 640px) 80vw, 100vw"
+              width={959}
+              height={843}
+              className="rounded-xl w-full h-auto max-w-[720px] object-cover select-none pointer-events-none"
+            />
           </Reveal>
         </div>
       </div>
