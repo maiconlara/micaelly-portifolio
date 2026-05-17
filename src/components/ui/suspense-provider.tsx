@@ -1,22 +1,9 @@
-"use client";
+import { ReactNode } from "react";
 
-import { SuspenseAnimation } from "@/components/ui/suspense-animation";
-import { ReactNode, useEffect, useState } from "react";
 interface ProvidersProps {
-    children: ReactNode;
+  children: ReactNode;
 }
 
 export const SuspenseProvider = ({ children }: ProvidersProps) => {
-    const [showChildren, setShowChildren] = useState(false);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setShowChildren(true);
-        }, 1000);
-
-        return () => clearTimeout(timer);
-    }, []);
-
-
-    return <SuspenseAnimation showChildren={showChildren}>{children}</SuspenseAnimation>;
+  return <div className="flex w-full flex-col">{children}</div>;
 };

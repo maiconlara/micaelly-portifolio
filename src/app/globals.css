@@ -9,6 +9,14 @@ body {
   scroll-behavior: smooth !important;
 }
 
+section[id] {
+  scroll-margin-top: 72px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
 
 @keyframes bounce-custom {
     0%, 100% {

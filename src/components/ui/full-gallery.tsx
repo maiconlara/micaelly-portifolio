@@ -40,89 +40,132 @@ import gestante3 from "@/assets/galeria/gestante3.png";
 import show from "@/assets/galeria/show.webp";
 import show2 from "@/assets/galeria/show2.webp";
 
-
-
 import GalleryItem from "@/components/ui/gallery-item";
 import { PhotoProvider } from "react-photo-view";
+import { SectionHeader } from "@/components/ui/section-header";
+import { Reveal } from "@/components/ui/reveal";
 
 import "react-photo-view/dist/react-photo-view.css";
 
-import { useEffect } from "react";
+import type { StaticImageData } from "next/image";
+import { useEffect, useMemo, useState } from "react";
+
+type Item = { src: StaticImageData; category: string };
+
+const ALL_ITEMS: Item[] = [
+  { src: aniversario, category: "Aniversário" },
+  { src: ensaio3, category: "Ensaio" },
+  { src: casamento5, category: "Casamento" },
+  { src: aniversario4, category: "Aniversário" },
+  { src: ensaio4, category: "Ensaio" },
+  { src: casamento, category: "Casamento" },
+  { src: aniversario2, category: "Aniversário" },
+  { src: cenario, category: "Cenário" },
+  { src: casamento3, category: "Casamento" },
+  { src: cosplay3, category: "Cosplay" },
+  { src: casamento4, category: "Casamento" },
+  { src: cosplay4, category: "Cosplay" },
+  { src: casamento6, category: "Casamento" },
+  { src: casamento2, category: "Casamento" },
+  { src: cosplay, category: "Cosplay" },
+  { src: cosplay2, category: "Cosplay" },
+  { src: cosplay5, category: "Cosplay" },
+  { src: cosplay6, category: "Cosplay" },
+  { src: encontro, category: "Encontro" },
+  { src: encontro2, category: "Encontro" },
+  { src: ensaio, category: "Ensaio" },
+  { src: aniversario3, category: "Aniversário" },
+  { src: ensaio2, category: "Ensaio" },
+  { src: ensaio5, category: "Ensaio" },
+  { src: externo, category: "Externo" },
+  { src: aniversario5, category: "Aniversário" },
+  { src: gestante2, category: "Gestante" },
+  { src: aniversario6, category: "Aniversário" },
+  { src: gestante3, category: "Gestante" },
+  { src: show, category: "Show" },
+  { src: show2, category: "Show" },
+];
+
+const CATEGORY_ORDER = [
+  "Todos",
+  "Aniversário",
+  "Casamento",
+  "Cosplay",
+  "Ensaio",
+  "Encontro",
+  "Gestante",
+  "Show",
+  "Cenário",
+  "Externo",
+];
 
 export const FullGallery = () => {
+  const [active, setActive] = useState<string>("Todos");
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const items = [
-    { src: aniversario, category: "Aniversário" },
-    { src: ensaio3, category: "Ensaio" },
-    { src: casamento5, category: "Casamento" },
+  const categories = useMemo(() => {
+    const present = new Set(ALL_ITEMS.map((i) => i.category));
+    return CATEGORY_ORDER.filter((c) => c === "Todos" || present.has(c));
+  }, []);
 
-    { src: aniversario4, category: "Aniversário" },
-    { src: ensaio4, category: "Ensaio" },
-
-    { src: casamento, category: "Casamento" },
-    { src: aniversario2, category: "Aniversário" },
-    { src: cenario, category: "Cenário" },
-
-    { src: casamento3, category: "Casamento" },
-
-    { src: cosplay3, category: "Cosplay" },
-    { src: casamento4, category: "Casamento" },
-    { src: cosplay4, category: "Cosplay" },
-    { src: casamento6, category: "Casamento" },
-
-    { src: casamento2, category: "Casamento" },
-    { src: cosplay, category: "Cosplay" },
-    { src: cosplay2, category: "Cosplay" },
-
-    { src: cosplay5, category: "Cosplay" },
-    { src: cosplay6, category: "Cosplay" },
-
-    { src: encontro, category: "Encontro" },
-    { src: encontro2, category: "Encontro" },
-
-    { src: ensaio, category: "Ensaio" },
-    { src: aniversario3, category: "Aniversário" },
-    { src: ensaio2, category: "Ensaio" },
-
-    { src: ensaio5, category: "Ensaio" },
-
-    // Externo
-    { src: externo, category: "Externo" },
-
-    // Gestante
-    { src: aniversario5, category: "Aniversário" },
-    { src: gestante2, category: "Gestante" },
-    { src: aniversario6, category: "Aniversário" },
-    { src: gestante3, category: "Gestante" },
-
-    // Show
-    { src: show, category: "Show" },
-    { src: show2, category: "Show" },
-
-  ];
+  const visible = useMemo(
+    () =>
+      active === "Todos"
+        ? ALL_ITEMS
+        : ALL_ITEMS.filter((i) => i.category === active),
+    [active]
+  );
 
   return (
-    <div
+    <section
       id="gallery"
-      className="overflow-hidden min-h-screen w-full flex py-18 flex-col items-center justify-start bg-white gap-18 "
+      aria-label="Galeria completa"
+      className="overflow-hidden min-h-screen w-full flex py-16 md:py-24 flex-col items-center justify-start bg-white gap-12 md:gap-16"
     >
-      <div className="flex flex-col gap-18 w-full h-full max-w-[1920px] items-center justify-center">
+      <div className="flex flex-col gap-12 md:gap-16 w-full h-full max-w-[1920px] items-center justify-center">
+        <Reveal>
+          <SectionHeader label="Galeria Completa" />
+        </Reveal>
+
+        <Reveal delay={0.05}>
+          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 max-w-[86vw]">
+            {categories.map((cat) => {
+              const isActive = active === cat;
+              return (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setActive(cat)}
+                  className={`cursor-pointer rounded-full px-4 py-2 text-[11px] md:text-xs uppercase tracking-[0.25em] font-clean font-light transition-all duration-300 ${
+                    isActive
+                      ? "bg-green-primary text-white border border-green-primary"
+                      : "bg-white text-green-primary border border-green-primary/40 hover:border-green-primary"
+                  }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
+        </Reveal>
+
         <PhotoProvider bannerVisible={true} maskOpacity={1}>
-          <div className="columns-1 sm:columns-2 lg:columns-4 gap-10 max-w-[86vw] w-full">
-            {items.map((item, i) => (
+          <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 max-w-[86vw] w-full">
+            {visible.map((item, i) => (
               <GalleryItem
-                key={i}
-                src={item.src.src}
+                key={`${item.category}-${i}`}
+                src={item.src}
                 category={item.category}
                 textColor="text-gray-600"
+                sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
               />
             ))}
           </div>
         </PhotoProvider>
       </div>
-    </div>
+    </section>
   );
 };
