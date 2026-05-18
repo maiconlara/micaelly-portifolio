@@ -64,9 +64,9 @@ export const Contact = () => {
     <section
       id="contact"
       aria-label="Contato"
-      className="relative overflow-hidden w-full flex py-24 md:py-32 flex-col items-center justify-start bg-green-primary gap-12 md:gap-16"
+      className="relative overflow-hidden w-full flex py-24 md:py-20 md:min-h-screen flex-col items-center justify-start md:justify-center bg-green-primary gap-12 md:gap-16"
     >
-      <div className="flex flex-col gap-12 md:gap-16 w-full max-w-[1920px] items-center justify-start">
+      <div className="flex flex-col gap-12 md:gap-16 w-full max-w-[1920px] items-center justify-center">
         <Reveal>
           <div className="flex flex-col items-center gap-6">
             <SectionHeader label="Contato" tone="white" />
